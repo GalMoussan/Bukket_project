@@ -41,6 +41,14 @@ export const Header: React.FC = () => {
 					>
 						Wishlist
 					</NavLink>
+					<NavLink
+						to="/banana"
+						className={({ isActive }) =>
+							isActive ? 'text-yellow-400' : 'hover:text-yellow-400'
+						}
+					>
+						Banana
+					</NavLink>
 				</nav>
 
 				<div className="flex items-center gap-4">
