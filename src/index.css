@@ -1,9 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
 	color-scheme: dark;
+	
+	/* Glow gradients */
+	--glow-primary: radial-gradient(circle at center, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+	--glow-accent: radial-gradient(circle at center, rgba(249, 115, 22, 0.15) 0%, transparent 70%);
 }
 
 html {
@@ -11,26 +17,47 @@ html {
 }
 
 body {
-	/* Bukket base colors applied via plain CSS */
 	margin: 0;
 	background-color: #050816; /* bukket-bg */
 	color: #f9fafb; /* bukket-text */
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-		sans-serif;
+	font-family: 'Outfit', system-ui, -apple-system, sans-serif;
 	-webkit-font-smoothing: antialiased;
+	overflow-x: hidden;
 }
 
 /* Global container helper */
 .bukket-container {
-	@apply mx-auto max-w-6xl px-4 sm:px-6 lg:px-8;
+	@apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+/* Glassmorphism Utilities */
+.glass-panel {
+	@apply bg-bukket-surface/40 backdrop-blur-md border border-bukket-border-subtle;
+}
+
+.glass-card {
+	@apply bg-bukket-surface/60 backdrop-blur-sm border border-bukket-border-subtle hover:border-bukket-primary/30 transition-colors duration-300;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+	width: 8px;
+}
+::-webkit-scrollbar-track {
+	background: #050816;
+}
+::-webkit-scrollbar-thumb {
+	background: #1f2937;
+	border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+	background: #374151;
 }
 
 /* Skeleton shimmer */
 .skeleton {
-	/* Only built-in utilities in @apply */
 	@apply relative overflow-hidden;
-	/* Custom color via plain CSS so Tailwind doesn't validate it */
-	background-color: #111827; /* bukket-soft */
+	background-color: #111827; 
 }
 
 .skeleton::after {
@@ -41,7 +68,7 @@ body {
 	background: linear-gradient(
 		90deg,
 		transparent,
-		rgba(255, 255, 255, 0.12),
+		rgba(255, 255, 255, 0.08),
 		transparent
 	);
 	animation: skeleton-shimmer 1.6s infinite;

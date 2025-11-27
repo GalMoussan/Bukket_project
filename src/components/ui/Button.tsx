@@ -17,7 +17,7 @@ const baseClasses =
 
 const variantClasses: Record<ButtonVariant, string> = {
 	primary:
-		"bg-bukket-primary text-bukket-bg hover:bg-bukket-primary-soft border border-transparent",
+		"bg-bukket-primary text-bukket-bg hover:bg-bukket-primary-glow border border-transparent shadow-[0_0_20px_rgba(59,130,246,0.5)] hover:shadow-[0_0_30px_rgba(59,130,246,0.7)] transition-all duration-300",
 	secondary:
 		"border border-bukket-border-subtle text-bukket-text hover:border-bukket-primary hover:text-bukket-primary bg-bukket-soft/40",
 	ghost: "text-bukket-text-soft hover:text-bukket-text",

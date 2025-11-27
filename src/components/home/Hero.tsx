@@ -3,101 +3,125 @@ import { Button } from '../ui/Button';
 
 export const Hero: React.FC = () => {
 	return (
-		<section className="relative overflow-hidden pb-12 pt-10 sm:pb-20 sm:pt-16">
-			<div className="pointer-events-none absolute inset-0 opacity-40">
-				<div className="bukket-container">
-					<div className="h-64 w-64 rounded-full bg-bukket-primary/10 blur-3xl" />
-				</div>
+		<section className="relative min-h-[90vh] overflow-hidden flex items-center">
+			{/* Background Elements */}
+			<div className="absolute inset-0 bg-bukket-bg">
+				<div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-bukket-surface via-bukket-bg to-bukket-bg opacity-80" />
+				<div className="absolute top-[-20%] right-[-10%] w-[800px] h-[800px] bg-bukket-primary/10 rounded-full blur-[120px] animate-pulse-slow" />
+				<div className="absolute bottom-[-20%] left-[-10%] w-[600px] h-[600px] bg-bukket-accent/5 rounded-full blur-[100px] animate-pulse-slow" style={{ animationDelay: '2s' }} />
 			</div>
 
-			<div className="bukket-container relative flex flex-col gap-10 lg:flex-row lg:items-center">
-				<div className="max-w-xl space-y-6">
-					<motion.p
-						className="inline-flex items-center rounded-bukket-pill border border-bukket-border-subtle bg-bukket-soft/60 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-bukket-text-soft"
-						initial={{ opacity: 0, y: 10 }}
+			{/* Grid Pattern Overlay */}
+			<div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150 mix-blend-overlay" />
+
+			<div className="bukket-container relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+				{/* Text Content */}
+				<div className="space-y-8 text-center lg:text-left">
+					<motion.div
+						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
-						transition={{ delay: 0.05, duration: 0.4 }}
+						transition={{ duration: 0.6 }}
 					>
-						Effortless gravity · Everyday ritual
-					</motion.p>
+						<span className="inline-flex items-center px-4 py-1.5 rounded-full border border-bukket-primary/30 bg-bukket-primary/10 text-bukket-primary-glow text-xs font-medium tracking-wider uppercase backdrop-blur-sm">
+							Gravity Perfected
+						</span>
+					</motion.div>
 
 					<motion.h1
-						className="text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl"
-						initial={{ opacity: 0, y: 14 }}
+						className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1]"
+						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
-						transition={{ delay: 0.12, duration: 0.45 }}
+						transition={{ duration: 0.6, delay: 0.1 }}
 					>
-						Meet <span className="text-bukket-primary">Bukket</span>. Gravity,
-						perfected.
+						Elevate Your <br />
+						<span className="text-transparent bg-clip-text bg-gradient-to-r from-bukket-text via-bukket-text to-bukket-text-muted">
+							Ritual
+						</span>
 					</motion.h1>
 
 					<motion.p
-						className="max-w-lg text-sm text-bukket-text-soft sm:text-base"
-						initial={{ opacity: 0, y: 14 }}
+						className="text-lg sm:text-xl text-bukket-text-muted max-w-2xl mx-auto lg:mx-0 leading-relaxed"
+						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
-						transition={{ delay: 0.18, duration: 0.45 }}
+						transition={{ duration: 0.6, delay: 0.2 }}
 					>
-						A waterless gravity lung designed for smooth, dense pulls with zero
-						mess. Minimal form, maximum function, engineered for your nightly
-						ritual.
+						Experience the cleanest draw with our waterless gravity system.
+						Engineered for density, cooled by expansion, designed for you.
 					</motion.p>
 
 					<motion.div
-						className="flex flex-wrap items-center gap-3"
-						initial={{ opacity: 0, y: 14 }}
+						className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
+						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
-						transition={{ delay: 0.24, duration: 0.45 }}
+						transition={{ duration: 0.6, delay: 0.3 }}
 					>
-						<Button
-							onClick={() => {
-								window.location.href = '/products';
-							}}
-						>
-							Shop Bukket
+						<Button size="lg" onClick={() => window.location.href = '/products'}>
+							Shop Collection
 						</Button>
-						<Button
-							variant="secondary"
-							size="md"
-							onClick={() => {
-								document
-									.getElementById('how-it-works')
-									?.scrollIntoView({ behavior: 'smooth' });
-							}}
-						>
-							How it works
+						<Button variant="secondary" size="lg" onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}>
+							How it Works
 						</Button>
 					</motion.div>
 
 					<motion.div
-						className="flex flex-wrap gap-4 text-[11px] text-bukket-text-soft"
-						initial={{ opacity: 0, y: 10 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ delay: 0.3, duration: 0.4 }}
+						className="pt-8 flex items-center justify-center lg:justify-start gap-8 text-sm text-bukket-text-muted/60"
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						transition={{ duration: 0.8, delay: 0.5 }}
 					>
-						<span>Waterless design</span>
-						<span>Dishwasher safe</span>
-						<span>Carry-anywhere form factor</span>
+						<div className="flex items-center gap-2">
+							<div className="w-1 h-1 rounded-full bg-bukket-primary" />
+							<span>Waterless</span>
+						</div>
+						<div className="flex items-center gap-2">
+							<div className="w-1 h-1 rounded-full bg-bukket-primary" />
+							<span>Dishwasher Safe</span>
+						</div>
+						<div className="flex items-center gap-2">
+							<div className="w-1 h-1 rounded-full bg-bukket-primary" />
+							<span>Lifetime Warranty</span>
+						</div>
 					</motion.div>
 				</div>
 
+				{/* Visual/Product Placeholder */}
 				<motion.div
-					className="relative mx-auto h-72 w-72 sm:h-80 sm:w-80 lg:ml-auto lg:mr-0"
-					initial={{ opacity: 0, y: 20, scale: 0.96 }}
-					animate={{ opacity: 1, y: 0, scale: 1 }}
-					transition={{ delay: 0.28, duration: 0.45 }}
+					className="relative h-[500px] w-full flex items-center justify-center perspective-1000"
+					initial={{ opacity: 0, scale: 0.9 }}
+					animate={{ opacity: 1, scale: 1 }}
+					transition={{ duration: 0.8, delay: 0.2 }}
 				>
-					<div className="absolute inset-0 rounded-[32px] border border-bukket-border-subtle bg-gradient-to-b from-bukket-soft to-bukket-bg shadow-bukket-soft" />
-					<motion.div
-						className="absolute inset-4 rounded-[26px] bg-gradient-to-tr from-bukket-primary/10 via-bukket-bg to-bukket-soft"
-						animate={{ y: [0, -6, 0] }}
-						transition={{ duration: 5, repeat: Infinity, repeatType: 'reverse' }}
-					/>
-					<div className="absolute inset-6 flex items-center justify-center">
-						<div className="flex h-full w-full items-center justify-center rounded-[24px] border border-bukket-border-subtle/60 bg-bukket-bg/50">
-							<span className="text-xs text-bukket-text-soft">
-								Product render / image placeholder
-							</span>
+					{/* Abstract Gravity Chamber Representation */}
+					<div className="relative w-80 h-[400px] animate-float-slow">
+						{/* Glass Cylinder */}
+						<div className="absolute inset-0 rounded-[40px] bg-gradient-to-b from-white/5 to-white/0 backdrop-blur-md border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden">
+							{/* Inner Glow */}
+							<div className="absolute inset-0 bg-gradient-to-tr from-bukket-primary/20 via-transparent to-bukket-accent/10" />
+
+							{/* Smoke/Gravity Effect */}
+							<div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-bukket-soft to-transparent opacity-80" />
+
+							{/* Floating Particles */}
+							{[...Array(5)].map((_, i) => (
+								<motion.div
+									key={i}
+									className="absolute w-2 h-2 rounded-full bg-white/20"
+									initial={{ x: Math.random() * 300, y: 400 }}
+									animate={{ y: -50, opacity: [0, 1, 0] }}
+									transition={{
+										duration: 3 + Math.random() * 2,
+										repeat: Infinity,
+										delay: Math.random() * 2,
+										ease: "linear"
+									}}
+									style={{ left: `${Math.random() * 100}%` }}
+								/>
+							))}
 						</div>
+
+						{/* Rings */}
+						<div className="absolute -inset-4 border border-bukket-primary/20 rounded-[48px] -z-10" />
+						<div className="absolute -inset-8 border border-bukket-primary/10 rounded-[56px] -z-20" />
 					</div>
 				</motion.div>
 			</div>
