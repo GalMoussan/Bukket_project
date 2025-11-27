@@ -57,4 +57,54 @@ export const products: Product[] = [
 		tags: ['accessory', 'travel'],
 		isFeatured: true,
 	},
+	{
+		id: 'bukket-pro',
+		name: 'Bukket Pro',
+		price: 119,
+		currency: 'USD',
+		description:
+			'The professional grade gravity system. Enhanced airflow, larger chamber, and premium finish for the connoisseur.',
+		features: [
+			'Enhanced airflow control',
+			'Larger smoke chamber',
+			'Premium matte finish',
+			'Includes travel bag',
+		],
+		images: ['/images/bukket-pro-1.webp'],
+		variants: [
+			{
+				id: 'pro-obsidian',
+				label: 'Obsidian',
+				colorHex: '#000000',
+				inStock: true,
+			},
+		],
+		tags: ['pro', 'premium', 'kit'],
+		isFeatured: true,
+	},
+	{
+		id: 'bukket-limited',
+		name: 'Bukket Limited Edition',
+		price: 149,
+		currency: 'USD',
+		description:
+			'Exclusive limited run with unique colorways and numbered engraving. The ultimate collector\'s piece.',
+		features: [
+			'Limited edition colorway',
+			'Numbered engraving',
+			'Collector\'s box',
+			'Lifetime VIP support',
+		],
+		images: ['/images/bukket-limited-1.webp'],
+		variants: [
+			{
+				id: 'limited-gold',
+				label: 'Stardust Gold',
+				colorHex: '#FFD700',
+				inStock: true,
+			},
+		],
+		tags: ['limited', 'exclusive', 'collector'],
+		isFeatured: true,
+	},
 ];
